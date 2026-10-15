@@ -28,7 +28,7 @@ body {
 h1 {
     margin-bottom: 10px;
     font-size: 32px;
-    color: #22c55e;
+    color: #87041a;
 }
 
 .descripcion {
@@ -70,7 +70,7 @@ canvas {
     width: 100%;
     max-width: 500px;
     background: #020617;
-    border: 4px solid #22c55e;
+    border: 4px solid #9f0909;
     border-radius: 16px;
     display: block;
     margin: 0 auto 20px auto;
@@ -90,8 +90,8 @@ canvas {
     border: none;
     border-radius: 12px;
     padding: 12px 16px;
-    background: #22c55e;
-    color: #052e16;
+    background: #490106;
+    color: #e3eae6;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
@@ -100,7 +100,7 @@ canvas {
 .controles button:hover,
 .acciones button:hover {
     transform: scale(1.05);
-    background: #86efac;
+    background: #9d0707;
 }
 
 .vacio {
@@ -115,7 +115,7 @@ canvas {
 }
 
 .acciones .secundario {
-    background: #38bdf8;
+    background: #f0ca0b;
     color: #082f49;
 }
 
