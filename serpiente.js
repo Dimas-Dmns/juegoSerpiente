@@ -22,24 +22,23 @@
       dibujarTablero();
     }
 
-   function dibujarTablero() {
+function dibujarTablero() {
     ctx.strokeStyle = "#38bdf8";
+    ctx.lineWidth = 1;
 
     ctx.beginPath();
 
-    ctx.moveTo(0, 0);
-    ctx.lineTo(500, 500);
+    // Líneas verticales
+    for (let x = 0; x <= canvas.width; x += TAMANIO_CELDA) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+    }
 
-    ctx.moveTo(250, 0);
-    ctx.lineTo(250, 500);
-
-    ctx.moveTo(0, 250);
-    ctx.lineTo(500, 250);
-
-    ctx.moveTo(500,0);
-    ctx.lineTo(0, 500);
-
-
+    // Líneas horizontales
+    for (let y = 0; y <= canvas.height; y += TAMANIO_CELDA) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+    }
 
     ctx.stroke();
 }
