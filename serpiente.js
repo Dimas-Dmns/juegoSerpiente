@@ -26,8 +26,21 @@
     ctx.strokeStyle = "#38bdf8";
 
     ctx.beginPath();
+
     ctx.moveTo(0, 0);
     ctx.lineTo(500, 500);
+
+    ctx.moveTo(250, 0);
+    ctx.lineTo(250, 500);
+
+    ctx.moveTo(0, 250);
+    ctx.lineTo(500, 250);
+
+    ctx.moveTo(500,0);
+    ctx.lineTo(0, 500);
+
+
+
     ctx.stroke();
 }
 
