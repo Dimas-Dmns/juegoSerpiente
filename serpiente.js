@@ -43,5 +43,19 @@ function dibujarTablero() {
     ctx.stroke();
 }
 
+function pintarParte(lineaX, lineaY) {
+    let x = lineaX * TAMANIO_CELDA;
+    let y = lineaY * TAMANIO_CELDA;
+
+    ctx.fillStyle = "red";
+
+    ctx.fillRect(
+        x,
+        y,
+        TAMANIO_CELDA,
+        TAMANIO_CELDA
+    );
+}
+
 
 
