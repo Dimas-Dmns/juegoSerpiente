@@ -62,7 +62,26 @@ function cambiarDireccion(direccion) {
     }
 }
 
+// ========================================
+// PARTE 4, 5 y 6 – INICIAR / PAUSAR
+// ========================================
 
+function iniciarJuego() {
+    if (juegoIniciado) return; // evitar varios intervalos
+
+    juegoIniciado = true;
+    document.getElementById("estado").textContent = "Jugando";
+    document.getElementById("mensaje").textContent = "¡La serpiente se está moviendo!";
+
+    intervaloSerpiente = setInterval(moverSerpiente, 150); // velocidad del juego
+}
+
+function pausarJuego() {
+    clearInterval(intervaloSerpiente);
+    juegoIniciado = false;
+    document.getElementById("estado").textContent = "Pausado";
+    document.getElementById("mensaje").textContent = "Juego pausado. Presiona Iniciar para continuar.";
+}
 
  
 // ========================================
