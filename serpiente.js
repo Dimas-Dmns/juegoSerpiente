@@ -20,7 +20,7 @@ let intervaloSerpiente = null;
 let comida = { x: 10, y: 10 };
 let puntaje = 0;
 let juegoIniciado = false;
-
+let gameOver = false;
 
 function limpiarCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -65,7 +65,22 @@ function pintarSerpiente() {
         }
     }
 }
+function verificarColisionBordes() {
+    let cabeza = serpiente[0];
 
+    if (
+        cabeza.x < 0 ||
+        cabeza.y < 0 ||
+        cabeza.x >= canvas.width ||
+        cabeza.y >= canvas.height
+    ) {
+        gameOver = true;
+        mostrarGameOver();
+        return true;
+    }
+
+    return false;
+}
 // ========================================
 // PARTE 1 y 3 – MOVIMIENTO EN 4 DIRECCIONES
 // ========================================
