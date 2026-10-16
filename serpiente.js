@@ -82,7 +82,13 @@ function pausarJuego() {
     document.getElementById("estado").textContent = "Pausado";
     document.getElementById("mensaje").textContent = "Juego pausado. Presiona Iniciar para continuar.";
 }
+// ========================================
+// PARTE 8 – COMIDA
+// ========================================
 
+function pintarComida() {
+    pintarParte(comida.x, comida.y, "#22c55e"); // verde
+}
  function generarComida() {
     let columnas = canvas.width / TAMANIO_CELDA;
     let filas = canvas.height / TAMANIO_CELDA;
