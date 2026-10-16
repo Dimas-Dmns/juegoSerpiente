@@ -173,6 +173,10 @@ function atrapaComida() {
 // ========================================
 
 function moverSerpiente() {
+     if (gameOver) {
+        return;
+    }
+
     if (direccionActual === "derecha") {
         moverDerecha();
     } else if (direccionActual === "izquierda") {
@@ -192,7 +196,9 @@ function moverSerpiente() {
     } else {
         serpiente.pop();
     }
-
+     if (verificarColisionBordes()) {
+        return;
+    }
     dibujarTodo();
 }
 
@@ -222,6 +228,10 @@ function pausarJuego() {
 // ========================================
 
 function reiniciarJuego() {
+
+  gameOver = false;
+
+    serpiente = crearSerpienteInicial();
     clearInterval(intervaloSerpiente);
     juegoIniciado = false;
 
