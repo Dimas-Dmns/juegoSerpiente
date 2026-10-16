@@ -81,6 +81,24 @@ function verificarColisionBordes() {
 
     return false;
 }
+
+function mostrarGameOver() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.75)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#ff3333";
+    ctx.font = "bold 48px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    ctx.fillText(
+        "GAME OVER",
+        canvas.width / 2,
+        canvas.height / 2
+    );
+}
+
+
 // ========================================
 // PARTE 1 y 3 – MOVIMIENTO EN 4 DIRECCIONES
 // ========================================
