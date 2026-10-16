@@ -96,6 +96,32 @@ function pintarComida() {
     comida.x = Math.floor(Math.random() * columnas);
     comida.y = Math.floor(Math.random() * filas);
 }
+
+// ========================================
+// REINICIAR JUEGO
+// ========================================
+
+function reiniciarJuego() {
+    clearInterval(intervaloSerpiente);
+    juegoIniciado = false;
+
+    serpiente = [
+        { x: 5, y: 10 },
+        { x: 4, y: 10 },
+        { x: 3, y: 10 },
+        { x: 2, y: 10 },
+        { x: 1, y: 10 }
+    ];
+
+    direccionActual = "derecha";
+    puntaje = 0;
+    document.getElementById("puntaje").textContent = "0";
+    document.getElementById("estado").textContent = "Listo";
+    document.getElementById("mensaje").textContent = "Presiona iniciar para comenzar.";
+
+    generarComida();
+    dibujarTodo();
+}
 // ========================================
 // 3. LIMPIAR EL CANVAS
 // ========================================
