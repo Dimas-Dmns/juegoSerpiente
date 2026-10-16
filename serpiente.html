@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juego de la Serpiente - Taller</title>
-   <link rel="stylesheet" href="serpiente.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10271c">
+    <title>Serpiente del Bosque</title>
+    <link rel="stylesheet" href="serpiente.css">
+    <script src="serpiente.js" defer></script>
 </head>
 <body>
-  <main class="contenedor-juego">
-    <h1>🐍 Juego de la Serpiente</h1>
-    <p class="descripcion">
-    Cada movimiento comienza con una coordenada.
-    Construye tu serpiente, domina la cuadrícula y prepárate para jugar.
-</p>
+    <main class="app">
+        <header class="encabezado">
+            <div class="marca">
+                <span class="marca-icono" aria-hidden="true">✦</span>
+                <div>
+                    <p class="sobretitulo">DESAFÍO NATURAL</p>
+                    <h1>Serpiente <span>del Bosque</span></h1>
+                </div>
+            </div>
+            <p class="intro">Come manzanas, crece y alcanza el siguiente nivel.</p>
+        </header>
 
-    <section class="panel-info">
-      <div class="tarjeta-info">
-        <span>Puntaje</span>
-        <strong id="puntaje">0</strong>
-      </div>
-      <div class="tarjeta-info">
-        <span>Estado</span>
-        <strong id="estado">Listo</strong>
-      </div>
-    </section>
+        <section class="panel-juego" aria-label="Juego de la serpiente">
+            <div class="barra-estadisticas">
+                <article class="estadistica">
+                    <span class="estadistica-icono">🍎</span>
+                    <div><span class="etiqueta">PUNTAJE</span><strong id="puntaje">0</strong></div>
+                </article>
+                <article class="estadistica">
+                    <span class="estadistica-icono">🌿</span>
+                    <div><span class="etiqueta">NIVEL</span><strong id="nivel">1</strong></div>
+                </article>
+                <article class="estadistica">
+                    <span class="estadistica-icono">◷</span>
+                    <div><span class="etiqueta">TIEMPO</span><strong id="tiempo">00:00</strong></div>
+                </article>
+            </div>
 
-    <canvas id="canvasJuego" width="600" height="600"></canvas>
+            <div class="tablero-marco">
+                <canvas id="canvasJuego" width="600" height="600" aria-label="Tablero de serpiente de 24 por 24 celdas">
+                    Tu navegador no admite el elemento canvas.
+                </canvas>
+                <div id="mensaje" class="capa-mensaje" role="status" aria-live="polite">
+                    <div class="tarjeta-mensaje">
+                        <span id="mensajeIcono" class="mensaje-icono" aria-hidden="true">🐍</span>
+                        <p class="mensaje-etiqueta">EL BOSQUE TE ESPERA</p>
+                        <h2 id="mensajeTitulo">¿Listo para jugar?</h2>
+                        <p id="mensajeTexto">Come la manzana roja. No choques con los bordes ni contigo mismo.</p>
+                        <button type="button" class="boton boton-principal" onclick="iniciarJuego()">Comenzar partida <span aria-hidden="true">→</span></button>
+                    </div>
+                </div>
+            </div>
 
-    <section class="controles">
-      <button class="vacio">-</button>
-      <button onclick="cambiarDireccion('arriba')">⬆️</button>
-      <button class="vacio">-</button>
+            <div class="controles">
+                <div class="grupo-botones">
+                    <button type="button" class="boton boton-principal" onclick="iniciarJuego()" id="botonInicio">▶ <span>Jugar</span></button>
+                    <button type="button" class="boton boton-secundario" onclick="pausarJuego()" id="botonPausa">Ⅱ <span>Pausar</span></button>
+                    <button type="button" class="boton boton-secundario" onclick="reiniciarJuego()">↻ <span>Reiniciar</span></button>
+                </div>
+                <label class="interruptor-sonido">
+                    <input type="checkbox" id="sonidoActivado" checked>
+                    <span class="interruptor" aria-hidden="true"></span>
+                    <span>Sonido</span>
+                </label>
+            </div>
+            <p id="estado" class="estado" aria-live="polite">Listo para comenzar</p>
+        </section>
 
-      <button onclick="cambiarDireccion('izquierda')">⬅️</button>
-      <button onclick="pausarJuego()">⏸️</button>
-      <button onclick="cambiarDireccion('derecha')">➡️</button>
+        <aside class="ayuda">
+            <div class="ayuda-titulo"><span>⌘</span><h2>Cómo jugar</h2></div>
+            <div class="instrucciones">
+                <p><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> <span>Mover la serpiente</span></p>
+                <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <span>También puedes usar WASD</span></p>
+                <p><kbd>Espacio</kbd> <span>Pausar o continuar</span></p>
+            </div>
+            <p class="nota">Consejo: la serpiente no puede girar directamente hacia su propio cuerpo.</p>
+        </aside>
 
-      <button class="vacio">-</button>
-      <button onclick="cambiarDireccion('abajo')">⬇️</button>
-      <button class="vacio">-</button>
-    </section>
-
-    <section class="acciones">
-      <button onclick="iniciarJuego()">Iniciar</button>
-      <button class="secundario" onclick="reiniciarJuego()">Reiniciar</button>
-    </section>
-
-    <p id="mensaje" class="mensaje">Presiona iniciar para comenzar.</p>
-  </main>
-
-  <script src="serpiente.js"></script>
+        <footer>Un pequeño reto entre hojas, raíces y manzanas. <span>✦</span></footer>
+    </main>
 </body>
 </html>
