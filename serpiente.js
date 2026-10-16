@@ -95,7 +95,6 @@ function pintarSerpiente() {
     for (let i = 0; i < serpiente.length; i++) {
         let parte = serpiente[i];
 
-        // La primera parte es la cabeza
         if (i === 0) {
             pintarParte(parte.x, parte.y, "yellow");
         } else {
