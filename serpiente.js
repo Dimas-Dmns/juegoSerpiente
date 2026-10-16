@@ -21,6 +21,7 @@ let comida = { x: 10, y: 10 };
 let puntaje = 0;
 let juegoIniciado = false;
 let gameOver = false;
+let intervaloJuego = null;
 
 function limpiarCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -207,6 +208,15 @@ function moverSerpiente() {
 // ========================================
 
 function iniciarJuego() {
+      if (intervaloJuego !== null) {
+        clearInterval(intervaloJuego);
+    }
+
+    intervaloJuego = setInterval(
+        moverSerpiente,
+        velocidad
+    );
+
     if (juegoIniciado) return;
 
     juegoIniciado = true;
@@ -214,6 +224,18 @@ function iniciarJuego() {
     document.getElementById("mensaje").textContent = "¡La serpiente se está moviendo!";
 
     intervaloSerpiente = setInterval(moverSerpiente, 150); // velocidad del juego
+if (intervaloJuego !== null) {
+    clearInterval(intervaloJuego);
+    intervaloJuego = null;
+}
+  }
+
+  function actualizarVelocidad() {
+    if (puntaje >= 10) {
+        velocidad = 200;
+    } else {
+        velocidad = 300;
+    }
 }
 
 function pausarJuego() {
