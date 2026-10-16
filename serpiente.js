@@ -17,7 +17,54 @@ const serpiente = [
     { x: 0, y: 14 }
 ];
 
+// ========================================
+// PARTE 1 y 3 – MOVIMIENTO EN 4 DIRECCIONES
+// ========================================
 
+function moverDerecha() {
+    let cabeza = serpiente[0];
+    let nuevaCabeza = { x: cabeza.x + 1, y: cabeza.y };
+    serpiente.unshift(nuevaCabeza);
+    // No hacemos pop aquí todavía (lo controlamos en moverSerpiente)
+}
+
+function moverIzquierda() {
+    let cabeza = serpiente[0];
+    let nuevaCabeza = { x: cabeza.x - 1, y: cabeza.y };
+    serpiente.unshift(nuevaCabeza);
+}
+
+function moverArriba() {
+    let cabeza = serpiente[0];
+    let nuevaCabeza = { x: cabeza.x, y: cabeza.y - 1 };
+    serpiente.unshift(nuevaCabeza);
+}
+
+function moverAbajo() {
+    let cabeza = serpiente[0];
+    let nuevaCabeza = { x: cabeza.x, y: cabeza.y + 1 };
+    serpiente.unshift(nuevaCabeza);
+}
+// ========================================
+// PARTE 2 y 7 – CAMBIO DE DIRECCIÓN
+// ========================================
+
+function cambiarDireccion(direccion) {
+    // Evitar que la serpiente se dé la vuelta sobre sí misma
+    if (direccion === "derecha" && direccionActual !== "izquierda") {
+        direccionActual = "derecha";
+    } else if (direccion === "izquierda" && direccionActual !== "derecha") {
+        direccionActual = "izquierda";
+    } else if (direccion === "arriba" && direccionActual !== "abajo") {
+        direccionActual = "arriba";
+    } else if (direccion === "abajo" && direccionActual !== "arriba") {
+        direccionActual = "abajo";
+    }
+}
+
+
+
+ 
 // ========================================
 // 3. LIMPIAR EL CANVAS
 // ========================================
