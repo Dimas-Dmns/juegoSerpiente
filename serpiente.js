@@ -11,7 +11,23 @@
     limpiarCanvas();
     dibujarTablero();
 
+    // Prueba 1
     pintarParte(5, 5);
+
+    // Prueba 2
+    pintarParte(10, 2);
+
+    // Prueba 3: borde inferior
+    pintarParte(5, 23);
+
+    // Prueba 4: borde derecho
+    pintarParte(23, 2);
+
+    // Prueba 5: borde izquierdo
+    pintarParte(0, 10);
+
+    // Prueba 6: esquina inferior derecha
+    pintarParte(23, 23);
 }
 
     // =========================
