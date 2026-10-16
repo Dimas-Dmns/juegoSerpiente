@@ -66,11 +66,9 @@ function dibujarTablero() {
 // ========================================
 
 function pintarParte(lineaX, lineaY, color = "red") {
-    // Convertir coordenadas de celda a píxeles
     let x = lineaX * TAMANIO_CELDA;
     let y = lineaY * TAMANIO_CELDA;
 
-    // Pintar el interior del cuadrado
     ctx.fillStyle = color;
     ctx.fillRect(
         x,
@@ -79,7 +77,6 @@ function pintarParte(lineaX, lineaY, color = "red") {
         TAMANIO_CELDA
     );
 
-    // Pintar el borde del cuadrado
     ctx.strokeStyle = "black";
     ctx.strokeRect(
         x,
