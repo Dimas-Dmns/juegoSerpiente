@@ -83,7 +83,13 @@ function pausarJuego() {
     document.getElementById("mensaje").textContent = "Juego pausado. Presiona Iniciar para continuar.";
 }
 
- 
+ function generarComida() {
+    let columnas = canvas.width / TAMANIO_CELDA;
+    let filas = canvas.height / TAMANIO_CELDA;
+
+    comida.x = Math.floor(Math.random() * columnas);
+    comida.y = Math.floor(Math.random() * filas);
+}
 // ========================================
 // 3. LIMPIAR EL CANVAS
 // ========================================
