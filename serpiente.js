@@ -7,7 +7,12 @@
     
 
     // Primera pintura del juego al cargar la página
-    dibujarTodo();
+ function dibujarTodo() {
+    limpiarCanvas();
+    dibujarTablero();
+
+    pintarParte(5, 5);
+}
 
     // =========================
     // FUNCIONES DE DIBUJO
